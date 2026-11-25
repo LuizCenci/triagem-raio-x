@@ -9,7 +9,11 @@ As imagens não são versionadas no repositório devido ao tamanho da base (~42 
 - Fonte oficial: https://nihcc.app.box.com/v/ChestXray-NIHCC
 - Arquivo de metadados: `Data_Entry_2017.csv`
 
-## Como obter
+## Obtenção via Kaggle (recomendado)
+
+Usamos a amostra `nih-chest-xrays/sample` do Kaggle (5.606 imagens, ~4,2 GB baixados; as imagens vêm duplicadas em duas pastas, mas os nomes são únicos). O download é feito por `src.download.download_dataset()`, que usa o `kagglehub` e guarda os arquivos no cache do usuário (não em `data/`). Os arquivos de divisão `data/splits/{train,validation,test}.csv` **são versionados**, para que todos usem exatamente os mesmos splits; eles não contêm caminhos de imagem, que são resolvidos por `attach_paths`.
+
+## Como obter (base completa)
 
 1. Baixe os arquivos `images_*.tar.gz` e o `Data_Entry_2017.csv` da fonte oficial.
 2. Extraia as imagens em `data/raw/images/`.

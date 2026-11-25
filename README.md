@@ -50,6 +50,13 @@ pip install -r requirements.txt
 
 Para obter e organizar os dados, siga as instruções em [data/README.md](data/README.md).
 
+Testes e Etapa 1 (análise exploratória e divisão por paciente):
+
+```bash
+pytest
+jupyter nbconvert --to notebook --execute --inplace notebooks/01_eda.ipynb
+```
+
 ## Fluxo de trabalho
 
 A branch `main` é protegida. Cada integrante trabalha em uma branch própria e abre um Pull Request, que só é integrado após aprovação de outro membro da equipe.

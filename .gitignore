@@ -3,6 +3,7 @@
 # Dados (não versionados — ver data/README.md)
 data/*
 !data/README.md
+!data/splits/
 
 # Modelos e checkpoints
 *.pt
