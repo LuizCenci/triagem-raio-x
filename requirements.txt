@@ -1,0 +1,24 @@
+# Deep learning
+torch>=2.2
+torchvision>=0.17
+
+# Dados e métricas
+numpy>=1.26
+pandas>=2.1
+scikit-learn>=1.4
+
+# Imagens
+pillow>=10.2
+opencv-python>=4.9
+scikit-image>=0.22
+
+# Explicabilidade
+grad-cam>=1.5
+
+# Visualização
+matplotlib>=3.8
+seaborn>=0.13
+
+# Utilidades
+tqdm>=4.66
+jupyter>=1.0

@@ -1,0 +1,46 @@
+# Instruções locais
+CLAUDE.md
+
+# Dados (não versionados — ver data/README.md)
+data/*
+!data/README.md
+
+# Modelos e checkpoints
+*.pt
+*.pth
+*.ckpt
+*.h5
+*.keras
+*.onnx
+checkpoints/
+models/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Ambientes virtuais
+.venv/
+venv/
+env/
+.env
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Logs de experimentos
+runs/
+wandb/
+mlruns/
+lightning_logs/
+
+# IDEs e SO
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
