@@ -1,0 +1,7 @@
+.tectonic-cache/
+*.aux
+*.bbl
+*.blg
+*.log
+main.pdf
+page*.png

@@ -1,0 +1,37 @@
+\documentclass[landscape,a4paper]{article}
+\usepackage[margin=1.4cm]{geometry}
+\usepackage{graphicx,xcolor}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[brazil]{babel}
+\pagestyle{empty}
+\definecolor{navy}{HTML}{10243A}\definecolor{teal}{HTML}{007E87}\definecolor{light}{HTML}{E9F3F3}
+\newcommand{\headslide}[3]{\noindent{\color{teal}\Large\bfseries #1}\hfill{\color{navy}\large #2}\\[0.25cm]{\color{navy}\Huge\bfseries #3}\\[0.35cm]\rule{\textwidth}{1.2pt}\\[0.45cm]}
+\newcommand{\footname}[2]{\vfill\noindent\colorbox{light}{\parbox{\dimexpr\textwidth-2\fboxsep}{\color{navy}\large #1\hfill #2}}}
+\begin{document}
+\headslide{1 / 6}{1:00}{Organizar a fila de leitura}\vspace{0.5cm}
+\begin{minipage}[t]{.55\textwidth}\Huge\color{navy}Radiografias com maior chance de alteração podem receber atenção mais cedo.\\[0.6cm]\Large\color{teal}\textbf{Saída:} prioridade para leitura humana, não diagnóstico.\end{minipage}\hfill
+\begin{minipage}[t]{.37\textwidth}\colorbox{light}{\parbox{.94\linewidth}{\Large\centering Imagem\\ $\longrightarrow$\\ probabilidade\\ $\longrightarrow$\\ prioridade}}\end{minipage}
+\footname{Alana Luize Kunrath}{Objetivo e limites}\newpage
+\headslide{2 / 6}{1:30}{Dados separados por paciente}\vspace{0.25cm}
+\begin{minipage}[t]{.49\textwidth}\Huge\color{navy}NIH ChestX-ray14\\[0.2cm]\Large Amostra pública: 5.606 imagens\\[0.45cm]\color{teal}\textbf{NORMAL} = No Finding\\\textbf{ALTERADA} = demais achados\end{minipage}\hfill
+\begin{minipage}[t]{.45\textwidth}\color{navy}\Huge 3.931\quad treino\\[0.25cm]531\quad validação\\[0.25cm]1.144\quad teste\\[0.5cm]\Large Pacientes exclusivos em cada grupo.\end{minipage}
+\footname{Murilo Ghedin Ghizzi}{Fonte: NIH Clinical Center}\newpage
+\headslide{3 / 6}{1:30}{Robustez com imagens degradadas}\vspace{0.15cm}
+\begin{minipage}[t]{.41\textwidth}\Large\color{navy}150 exames do teste, pareados com versões sintéticas.\\[0.4cm]30 por tipo:\\ruído, rotação, corte, baixo contraste e combinação.\\[0.45cm]\color{teal}\textbf{Limite:} não equivalem a imagens clínicas coletadas separadamente.\end{minipage}\hfill
+\begin{minipage}[t]{.54\textwidth}\includegraphics[width=\linewidth,height=9.8cm,keepaspectratio]{../artigo/figuras/degradado_exemplos.png}\end{minipage}
+\footname{Mauro Junior Cella Schuastz}{Alternativa B: confirmar com o professor}\newpage
+\headslide{4 / 6}{1:30}{Modelo e decisão}\vspace{0.65cm}
+\begin{center}\colorbox{light}{\parbox{.23\textwidth}{\centering\Large Radiografia\\224 $\times$ 224}}\quad$\longrightarrow$\quad\colorbox{light}{\parbox{.23\textwidth}{\centering\Large ResNet-50\\pré-treinada}}\quad$\longrightarrow$\quad\colorbox{light}{\parbox{.23\textwidth}{\centering\Large Probabilidade\\ALTERADA}}\end{center}
+\vspace{0.8cm}\Large\color{navy}Limiar de rotina: \textbf{0,231} \hspace{1cm} Prioridade alta: \textbf{0,788}\\[0.55cm]Faixa indeterminada: $\pm 0,05$ em torno do limiar de rotina.\\[0.55cm]Checagem inicial de contraste e nitidez; ambos têm limites calibrados na validação.
+\footname{Lucas Henrique Bonissoni}{Triagem assistida}\newpage
+\headslide{5 / 6}{1:30}{Resultados e robustez}\vspace{0.2cm}
+\begin{minipage}[t]{.45\textwidth}\Huge\color{teal}90,4\% \color{navy}recall\\[0.2cm]67,8\% F1\\[0.2cm]72,5\% AUROC\\[0.55cm]\Large Teste: 1.144 imagens\\479 VP; 51 FN\\[0.55cm]\color{teal}\textbf{Degradado:} balanced accuracy de 0,600 para 0,520.\end{minipage}\hfill
+\begin{minipage}[t]{.50\textwidth}\includegraphics[width=\linewidth,height=9.8cm,keepaspectratio]{../artigo/figuras/degradado_queda.png}\end{minipage}
+\footname{Matheus de Aquino da Silva}{Métricas em results/metrics/}\newpage
+\headslide{6 / 6}{1:00}{O que os mapas mostraram}\vspace{0.1cm}
+\begin{minipage}[t]{.39\textwidth}\Large\color{navy}Grad-CAM em 15 casos.\\[0.45cm]Nos três falsos negativos selecionados do teste, a ativação predominou \textbf{fora dos pulmões}.\\[0.55cm]\color{teal}\textbf{Próximos passos:} validação externa, calibração e checagem mais ampla de qualidade.\end{minipage}\hfill
+\begin{minipage}[t]{.56\textwidth}\includegraphics[width=\linewidth,height=9.8cm,keepaspectratio]{../artigo/figuras/gradcam_teste.png}\end{minipage}
+\footname{Luiz Augusto Cenci}{Protótipo acadêmico; leitura humana necessária}
+\end{document}
+
