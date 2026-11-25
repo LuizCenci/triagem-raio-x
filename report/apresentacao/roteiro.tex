@@ -63,7 +63,7 @@ Alana Kunrath & 11--12 & 6:40--8:00 \\
 
 \textbf{Slide 11, 6:40--7:20.} "Inspecionamos 15 mapas Grad-CAM, sendo 12 casos do teste e três degradados. Nos três falsos negativos selecionados do teste, a ativação principal ficou fora dos pulmões. Isso chama atenção para possíveis atalhos visuais usados pelo modelo. Mas o Grad-CAM não prova a causa da decisão, e esses poucos exemplos não representam todos os erros. A inspeção ajuda a formular hipóteses para avaliações futuras."\par
 
-\textbf{Slide 12, 7:20--8:00.} "Concluímos que a ResNet-50 melhorou as métricas em relação ao baseline, mas ainda produziu 51 falsos negativos e 403 falsos positivos no teste. A avaliação com degradações mostrou perda de balanced accuracy e lacunas na checagem de qualidade. Antes de qualquer uso clínico seriam necessários dados externos, rótulos revisados, melhor calibração e testes do impacto na fila real. Para a disciplina, a aceitação das imagens sinteticamente degradadas como alternativa B ainda precisa da concordância do professor. Obrigada; estamos prontos para as perguntas."\par
+\textbf{Slide 12, 7:20--8:00.} "Concluímos que a ResNet-50 melhorou as métricas em relação ao baseline, mas ainda produziu 51 falsos negativos e 403 falsos positivos no teste. A avaliação com degradações mostrou perda de balanced accuracy e lacunas na checagem de qualidade. Antes de qualquer uso clínico seriam necessários dados externos, rótulos revisados, melhor calibração e testes do impacto na fila real. As degradações sintéticas permitiram um teste controlado, mas não substituem uma validação em imagens clínicas externas. Obrigada; estamos prontos para as perguntas."\par
 
 \subsection*{Respostas para perguntas prováveis}
 
@@ -71,7 +71,7 @@ Alana Kunrath & 11--12 & 6:40--8:00 \\
 \item \textbf{Por que não priorizar acurácia?} A triagem exige atenção aos falsos negativos; por isso reportamos recall, F1, balanced accuracy, AUROC e a matriz de confusão. A acurácia isolada esconderia a troca entre sensibilidade e falsos positivos.
 \item \textbf{Houve vazamento de dados?} A separação foi por paciente. Os limiares foram ajustados na validação, e o teste foi usado para avaliação final.
 \item \textbf{O que significa o Grad-CAM fora dos pulmões?} É uma observação nos três falsos negativos selecionados do teste, não uma explicação causal nem uma conclusão sobre todos os exames.
-\item \textbf{Por que imagens degradadas em vez de imagens próprias?} É uma alternativa sintética planejada para o contexto de imagens médicas. A aceitação pela disciplina depende da concordância do professor.
+\item \textbf{Por que imagens degradadas em vez de imagens próprias?} Usamos 150 exames públicos em uma comparação pareada e controlada. As versões sintéticas não substituem imagens clínicas externas.
 \item \textbf{O modelo pode ser usado em hospital?} Não. Faltam validação externa, revisão clínica dos rótulos, avaliação prospectiva e estudo do fluxo de trabalho.
 \end{itemize}
 \end{document}
