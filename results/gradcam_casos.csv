@@ -1,0 +1,16 @@
+image,conjunto,caso,label,p_alterada,foco,observacao
+00026132_029.png,teste,VP,1,0.91706526,pulmao,"Ativação principal no pulmão direito e região central do tórax; marcador lateral presente, sem foco dominante nele."
+00028961_003.png,teste,VP,1,0.9064291,pulmao,"Foco principal no pulmão direito, com ativação secundária na base pulmonar esquerda."
+00002032_014.png,teste,VP,1,0.90392005,misto,Ativação na base pulmonar esquerda e na borda lateral direita; há marcador e dispositivo visíveis na porção superior.
+00018258_001.png,teste,FN,1,0.056598905,fora,Foco quase todo na borda inferior direita e no abdome; pouca ativação nos pulmões.
+00000545_004.png,teste,FN,1,0.059601974,fora,"Foco na borda superior esquerda, fora do campo pulmonar; marcador lateral aparece do lado oposto."
+00023916_000.png,teste,FN,1,0.06391263,fora,"Foco na borda superior esquerda, fora dos pulmões; o marcador lateral está no lado oposto."
+00026740_000.png,teste,FP,0,0.9574096,misto,"Foco no pulmão direito e na base do tórax, com extensão à borda inferior."
+00029039_004.png,teste,FP,0,0.8845057,pulmao,Foco central no pulmão direito e região mediastinal; dispositivos e marcador também são visíveis.
+00002316_001.png,teste,FP,0,0.878022,pulmao,Ativação predominante na base pulmonar direita e região central do tórax.
+00008062_006.png,teste,VN,0,0.044499796,fora,"Ativação mais intensa na faixa superior, acima dos ápices pulmonares; foco discreto no pulmão direito."
+00018261_000.png,teste,VN,0,0.046630863,fora,"Ativação na borda superior esquerda e região do ombro, fora do campo pulmonar."
+00008142_003.png,teste,VN,0,0.055162612,fora,Ativação na borda superior esquerda e no ombro; região pulmonar pouco destacada.
+combinada_00025812_004.png,degradado,VP,1,0.7079678773880005,pulmao,"Após degradação combinada, o foco principal permanece no pulmão direito, com ativação secundária na base esquerda."
+baixo_contraste_00017484_000.png,degradado,FN,1,0.0760828256607055,fora,"No baixo contraste, a ativação continua na borda superior esquerda, fora dos pulmões; a probabilidade diminui."
+corte_00030079_049.png,degradado,VP,1,0.5142471790313721,misto,"Após o corte, surgem focos nas bases pulmonares e na borda inferior; dispositivos são visíveis no tórax."
