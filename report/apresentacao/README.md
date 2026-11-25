@@ -1,6 +1,6 @@
 # Apresentação da etapa 6
 
-- `apresentacao.pdf`: versão para projetar, com 12 slides.
+- `apresentacao.pdf`: versão para projetar, com capa e 12 slides de conteúdo (13 páginas).
 - `slides.tex`: fonte editável em LaTeX. Compile com `tectonic slides.tex` neste diretório.
 - `roteiro.md`: falas por slide, tempos, transições e respostas para perguntas.
 - `roteiro.pdf`: versão do roteiro para leitura ou impressão.

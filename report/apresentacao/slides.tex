@@ -10,10 +10,23 @@
 \definecolor{pale}{HTML}{E8F3F3}
 \definecolor{muted}{HTML}{486274}
 \newcommand{\head}[4]{\par\noindent\hfill{\color{muted}\large #1 / 12}\par\vspace{.16cm}\noindent{\color{navy}\fontsize{26}{29}\selectfont\bfseries #2}\par\vspace{.22cm}\noindent{\color{teal}\rule{\textwidth}{1.1pt}}\par\vspace{.35cm}}
-\newcommand{\foot}[3]{\par\vfill\noindent\colorbox{pale}{\parbox{\dimexpr\textwidth-2\fboxsep}{\color{navy}\bfseries #1\hfill\color{muted}#2\quad\textbar\quad #3}}\par}
+\newcommand{\foot}[2]{\par\vfill\noindent\colorbox{pale}{\parbox{\dimexpr\textwidth-2\fboxsep}{\color{navy}\bfseries Triagem de radiografias\hfill\color{muted}#1\quad\textbar\quad #2}}\par}
 \newcommand{\tagline}[1]{\par\vspace{.25cm}\noindent{\color{teal}\bfseries\large #1}\par}
 \newcommand{\card}[2]{\colorbox{pale}{\parbox[t]{#1}{\vspace{.15cm}\color{navy}#2\vspace{.15cm}}}}
 \begin{document}
+\begin{center}
+\vspace*{1.1cm}
+{\color{teal}\Large UNIVERSIDADE TECNOLÓGICA FEDERAL DO PARANÁ}\par\vspace{.45cm}
+{\color{navy}\fontsize{32}{38}\selectfont\bfseries Triagem assistida de\\ radiografias de tórax}\par\vspace{.35cm}
+{\color{muted}\Large ResNet-50, robustez e Grad-CAM}\par\vspace{.65cm}
+{\color{teal}\rule{.72\textwidth}{1.5pt}}\par\vspace{.7cm}
+{\color{navy}\Large\bfseries Integrantes}\par\vspace{.25cm}
+\begin{minipage}{.43\textwidth}\centering\large Lucas Bonissoni\\[.18cm]Luiz Cenci\\[.18cm]Mauro Cella\end{minipage}\hfill
+\begin{minipage}{.43\textwidth}\centering\large Matheus de Aquino\\[.18cm]Murilo Ghizzi\\[.18cm]Alana Kunrath\end{minipage}
+\end{center}
+\vfill
+\noindent\colorbox{pale}{\parbox{\dimexpr\textwidth-2\fboxsep}{\centering\color{navy}Etapa 6 \quad\textbar\quad Visão Computacional \quad\textbar\quad 2026}}
+\newpage
 \head{1}{Triagem assistida de radiografias de tórax}{}{}
 \vspace{.4cm}
 \begin{minipage}[t]{.57\textwidth}\vspace{0pt}
@@ -23,14 +36,14 @@
 {\color{muted}\large Protótipo acadêmico com radiografias públicas. A decisão clínica permanece com profissionais.}
 \end{minipage}\hfill
 \begin{minipage}[t]{.37\textwidth}\vspace{0pt}\card{.94\linewidth}{\centering\Large\bfseries 5.606 imagens\\[.35cm]\large NIH ChestX-ray14\\[.55cm]\Large\bfseries 2 classes\\[.2cm]\large NORMAL / ALTERADA} \end{minipage}
-\foot{Lucas Bonissoni}{0:40}{Problema}\newpage
+\foot{0:40}{Problema}\newpage
 \head{2}{O produto organiza prioridades, não laudos}{}{}
 \vspace{.35cm}
 \begin{center}\card{.24\textwidth}{\centering\Large Radiografia\\[.2cm]\normalsize entrada 224 $\times$ 224}\quad{\color{teal}\LARGE$\longrightarrow$}\quad\card{.24\textwidth}{\centering\Large ResNet-50\\[.2cm]\normalsize probabilidade ALTERADA}\quad{\color{teal}\LARGE$\longrightarrow$}\quad\card{.24\textwidth}{\centering\Large Fila de leitura\\[.2cm]\normalsize prioridade / revisão}\end{center}
 \vspace{.6cm}\large\color{navy}
 A saída distingue \textbf{prioridade alta}, \textbf{média}, \textbf{rotina} e uma faixa \textbf{indeterminada}. Uma checagem de qualidade pode sinalizar imagem inadequada.\par\vspace{.4cm}
 \tagline{A fila pode ajudar a ordenar. Ela não identifica a doença nem dispensa o radiologista.}
-\foot{Lucas Bonissoni}{0:40}{Fluxo de triagem}\newpage
+\foot{0:40}{Fluxo de triagem}\newpage
 \head{3}{Dados e rótulos usados no experimento}{}{}
 \begin{minipage}[t]{.50\textwidth}\vspace{0pt}
 {\color{navy}\Large Fonte: amostra pública do NIH ChestX-ray14.}\par\vspace{.45cm}
@@ -41,7 +54,7 @@ A saída distingue \textbf{prioridade alta}, \textbf{média}, \textbf{rotina} e 
 \begin{minipage}[t]{.42\textwidth}\vspace{0pt}
 \includegraphics[width=\linewidth,height=8.1cm,keepaspectratio]{../artigo/figuras/acertos_erros.png}\par\small Exemplos de radiografias e previsões no teste.
 \end{minipage}
-\foot{Luiz Cenci}{0:40}{Dataset}\newpage
+\foot{0:40}{Dataset}\newpage
 \head{4}{A separação por paciente protege o teste}{}{}
 \vspace{.25cm}
 \begin{center}
@@ -52,7 +65,7 @@ A saída distingue \textbf{prioridade alta}, \textbf{média}, \textbf{rotina} e 
 \vspace{.9cm}
 {\color{navy}\Large Pacientes exclusivos em cada divisão. Limiares e limites de qualidade foram ajustados na validação; métricas finais usam o teste isolado.}\par\vspace{.65cm}
 \tagline{Total: 5.606 imagens. O resultado mede esse recorte público, não uma população clínica externa.}
-\foot{Luiz Cenci}{0:40}{Protocolo}\newpage
+\foot{0:40}{Protocolo}\newpage
 \head{5}{Modelo: transferência de aprendizado}{}{}
 \begin{minipage}[t]{.46\textwidth}\vspace{0pt}
 {\color{navy}\Large ResNet-50 com pesos ImageNet.}\par\vspace{.4cm}
@@ -66,7 +79,7 @@ Ponderação de classes e aumentos de rotação, zoom e contraste.\par\vspace{.5
 \card{.95\linewidth}{\Large\bfseries Base visual\par\normalsize ResNet-50 pré-treinada}\par\vspace{.3cm}
 \card{.95\linewidth}{\Large\bfseries Saída\par\normalsize probabilidade de ALTERADA}
 \end{minipage}
-\foot{Mauro Cella}{0:40}{Treinamento}\newpage
+\foot{0:40}{Treinamento}\newpage
 \head{6}{A probabilidade vira uma decisão de fila}{}{}
 \vspace{.15cm}
 \begin{center}
@@ -78,7 +91,7 @@ Ponderação de classes e aumentos de rotação, zoom e contraste.\par\vspace{.5
 \begin{minipage}[t]{.48\textwidth}\vspace{0pt}{\color{navy}\Large Limiar baixo favorece o recall de exames ALTERADA. O custo é elevar falsos positivos.}\end{minipage}\hfill
 \begin{minipage}[t]{.45\textwidth}\vspace{0pt}{\color{navy}\Large Antes da prioridade, contraste e nitidez são comparados a limites calibrados na validação.}\end{minipage}
 \vspace{.6cm}\tagline{A checagem atual não cobre todas as falhas de qualidade.}
-\foot{Mauro Cella}{0:40}{Camada de decisão}\newpage
+\foot{0:40}{Camada de decisão}\newpage
 \head{7}{No teste, a ResNet-50 supera o baseline}{}{}
 \vspace{.2cm}
 {\large\color{navy}\begin{center}\renewcommand{\arraystretch}{1.6}
@@ -94,7 +107,7 @@ AUROC & 53,7\% & \textbf{72,5\%}\\
 \bottomrule
 \end{tabular}\end{center}}
 \vspace{.3cm}\tagline{Recall foi priorizado porque um falso negativo pode permanecer na rotina.}
-\foot{Matheus de Aquino}{0:40}{Métricas gerais}\newpage
+\foot{0:40}{Métricas gerais}\newpage
 \head{8}{O ganho em recall tem um custo}{}{}
 \begin{minipage}[t]{.47\textwidth}\vspace{0pt}
 \includegraphics[width=\linewidth,height=8.0cm,keepaspectratio]{../artigo/figuras/confusao_resnet50.png}\par\small Matriz de confusão no teste.
@@ -105,7 +118,7 @@ AUROC & 53,7\% & \textbf{72,5\%}\\
 {\large Alta 44; média 725; indeterminada 188; rotina 187.}\par\vspace{.35cm}
 {\color{navy}\large 34 das 187 imagens em rotina tinham rótulo ALTERADA.}
 \end{minipage}
-\foot{Matheus de Aquino}{0:40}{Erros e prioridades}\newpage
+\foot{0:40}{Erros e prioridades}\newpage
 \head{9}{Teste de robustez: pares originais e degradados}{}{}
 \begin{minipage}[t]{.43\textwidth}\vspace{0pt}
 {\color{navy}\Large 150 radiografias do teste: 75 NORMAL e 75 ALTERADA.}\par\vspace{.45cm}
@@ -116,7 +129,7 @@ AUROC & 53,7\% & \textbf{72,5\%}\\
 \begin{minipage}[t]{.52\textwidth}\vspace{0pt}
 \includegraphics[width=\linewidth,height=8.0cm,keepaspectratio]{../artigo/figuras/degradado_exemplos.png}\par\small Exemplos sintéticos produzidos para o experimento.
 \end{minipage}
-\foot{Murilo Ghizzi}{0:40}{Conjunto degradado}\newpage
+\foot{0:40}{Conjunto degradado}\newpage
 \head{10}{A degradação reduziu o equilíbrio dos acertos}{}{}
 \begin{minipage}[t]{.47\textwidth}\vspace{0pt}
 {\color{navy}\large\bfseries Comparação pareada de 150 imagens}\par\vspace{.3cm}
@@ -127,7 +140,7 @@ AUROC & 53,7\% & \textbf{72,5\%}\\
 \begin{minipage}[t]{.47\textwidth}\vspace{0pt}
 \includegraphics[width=\linewidth,height=8.0cm,keepaspectratio]{../artigo/figuras/degradado_queda.png}
 \end{minipage}
-\foot{Murilo Ghizzi}{0:40}{Robustez}\newpage
+\foot{0:40}{Robustez}\newpage
 \head{11}{Grad-CAM ajuda a inspecionar erros}{}{}
 \begin{minipage}[t]{.42\textwidth}\vspace{0pt}
 {\color{navy}\Large Foram inspecionados 15 casos: 12 do teste e 3 degradados.}\par\vspace{.45cm}
@@ -138,7 +151,7 @@ AUROC & 53,7\% & \textbf{72,5\%}\\
 \begin{minipage}[t]{.53\textwidth}\vspace{0pt}
 \includegraphics[width=\linewidth,height=8.1cm,keepaspectratio]{../artigo/figuras/gradcam_teste.png}\par\small Casos selecionados, organizados por acerto e erro.
 \end{minipage}
-\foot{Alana Kunrath}{0:40}{Interpretabilidade}\newpage
+\foot{0:40}{Interpretabilidade}\newpage
 \head{12}{Conclusão e limites do protótipo}{}{}
 \vspace{.2cm}
 \begin{minipage}[t]{.46\textwidth}\vspace{0pt}
@@ -152,5 +165,5 @@ AUROC & 53,7\% & \textbf{72,5\%}\\
 {\color{muted}\large A alternativa de imagens degradadas precisa de concordância do professor para a disciplina.}
 \end{minipage}
 \vspace{.55cm}\tagline{Conclusão: apoio experimental à triagem, nunca diagnóstico automático.}
-\foot{Alana Kunrath}{0:40}{Encerramento}
+\foot{0:40}{Encerramento}
 \end{document}

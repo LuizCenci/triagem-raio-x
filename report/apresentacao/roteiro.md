@@ -11,6 +11,8 @@ Ordem sorteada em 25/11/2026: **Lucas Bonissoni, Luiz Cenci, Mauro Cella, Matheu
 | Murilo Ghizzi | 9–10 | 5:20–6:40 |
 | Alana Kunrath | 11–12 | 6:40–8:00 |
 
+A capa mostra o título e os nomes antes da fala. Os números de slides abaixo se referem aos 12 slides de conteúdo; no PDF, eles ocupam as páginas 2 a 13.
+
 ## Lucas Bonissoni
 
 **Slide 1, 0:00–0:40.** "Boa noite. Nosso projeto investiga uma forma de organizar a fila de leitura de radiografias de tórax. A ideia é destacar exames com maior probabilidade de alteração para que um profissional possa analisá-los mais cedo. Trabalhamos com uma amostra pública de 5.606 imagens do NIH ChestX-ray14, divididas em NORMAL e ALTERADA. Isso é um experimento acadêmico de apoio à triagem. O modelo não determina a doença e não substitui um radiologista."
